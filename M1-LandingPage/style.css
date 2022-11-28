@@ -1,12 +1,43 @@
+body {
+    background-color: beige;
+}
+
 h1 {
     text-align: center;
     font-size: 50px;
+    color: burlywood;
+    margin: 0px;
+}
+
+ul {
+    text-align: center;
+    font-size: 25px;
+    margin: 0px;
+    padding: 20px;
+}
+
+li {
+    display: inline;
+    margin: 10px;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: blueviolet;
+}
+
+#primary {
+    background-image: url("./images/microsoft-edge-6CNB3iD8M4E-unsplash.jpg");
+    height: 850px;
+    width: 100%;
+    background-size: cover;
 }
 
 div {
-    border: 1px black solid;
     text-align: center;
 }
+
 label {
     margin-bottom: 10px;
 }
