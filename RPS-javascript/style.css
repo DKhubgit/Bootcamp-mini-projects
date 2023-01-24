@@ -1,0 +1,11 @@
+#main-box {
+    height: 200px;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+}
