@@ -1,0 +1,17 @@
+button {
+    height: 150px;
+    width: 300px;
+    font-size: 50px;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: antiquewhite;
+}
+
+#main-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 500px;
+}
