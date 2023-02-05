@@ -23,6 +23,15 @@ function displayGame() {
         listEl.innerText = "_";
         unorderedEl.appendChild(listEl);
     }
+    let box = document.createElement('div');
+    box.setAttribute('id', 'box')
+
+    let inputBox = document.createElement('input');
+    inputBox.setAttribute('type', 'text')
+    inputBox.setAttribute('id', 'letterInput');
+
+    document.body.appendChild(box);
+    box.appendChild(inputBox);
     
 }
 

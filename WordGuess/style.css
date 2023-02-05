@@ -21,13 +21,41 @@ h1 {
 
 ul {
     height: 400px;
-    width: 600px;
+    padding-left: 0px;
+    width: auto;
     display: flex;
     flex-direction: row;
-    align-items: space-evenly;
+    justify-content: space-evenly;
     list-style-type: none;
+    text-align: center;
 }
 
 li {
+    font-size: 1000%;
+    font-weight: 20px;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+#letterInput {
+    height: 150px;
+    width: 40%;
+    font-size: 700%;
+    text-align: center;
+}
+
+#box {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+    li {
+        font-size: 500%;
+    }
+
+    #letterInput {
+        font-size: 500%;
+    }
 }
