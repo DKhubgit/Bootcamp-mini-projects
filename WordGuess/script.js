@@ -9,6 +9,8 @@ function startGame() {
 
 let randIndex = Math.floor(Math.random() * words.length);
 let letters = words[randIndex].split('');
+let finishCount = 0;
+
 
 function displayGame() {
     let titleEl = document.createElement('h1');
@@ -16,8 +18,13 @@ function displayGame() {
 
     document.body.appendChild(titleEl);
 
-    let unorderedEl = document.createElement('ul')
-    document.body.appendChild(unorderedEl);
+    let letterBox = document.createElement('div');
+    letterBox.setAttribute('id', 'letterBox');
+    document.body.appendChild(letterBox);
+
+    let unorderedEl = document.createElement('ul');
+    unorderedEl.setAttribute('id', 'ulEl')
+    letterBox.appendChild(unorderedEl);
 
     let listEl;
 
@@ -27,6 +34,7 @@ function displayGame() {
         listEl.setAttribute('id', i)
         unorderedEl.appendChild(listEl);
     }
+
     let box = document.createElement('div');
     box.setAttribute('id', 'box')
 
@@ -44,16 +52,48 @@ function displayGame() {
 function CheckLetter(event) {
             let key = event.key.toUpperCase();
             let found = false;
+            //checks for multiple letters
             while (!found) {
                 if (letters.includes(key)) {
                     let space = document.getElementById(`${letters.indexOf(key)}`)
                     space.innerText = key;
                     letters.splice(letters.indexOf(key), 1, 'done');
+                    finishCount++;
                 } else {
                     found = true;
                 }
             }
             document.getElementById('letterInput').value = "";
+            if (finishCount == letters.length) {
+                finishCount = 0;
+                newGame();
+            }
+            return;
+}
+
+function newGame() {
+    randIndex = Math.floor(Math.random() * words.length);
+    letters = words[randIndex].split('');
+
+    let sub = document.getElementById('ulEl');
+    sub.remove();
+
+    let newUnorderEl = document.createElement('ul');
+    newUnorderEl.setAttribute('id', 'ulEl')
+    
+    document.getElementById('letterBox').appendChild(newUnorderEl);
+
+    let newListEl;
+
+    for (let i = 0; i < letters.length; ++i) {
+        newListEl = document.createElement('li')
+        newListEl.innerText = "_";
+        newListEl.setAttribute('id', i)
+        newUnorderEl.appendChild(newListEl);
+    }
+
+    document.getElementById("letterInput").addEventListener("keydown", CheckLetter)
+
 }
 
 document.getElementById("start").addEventListener('click', function (event) {
