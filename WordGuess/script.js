@@ -10,14 +10,18 @@ function startGame() {
 let randIndex = Math.floor(Math.random() * words.length);
 let letters = words[randIndex].split('');
 let finishCount = 0;
+let timeLimit = 120; //sec
 
 
 function displayGame() {
+    setTime();
+    //title
     let titleEl = document.createElement('h1');
     titleEl.innerText = "Guess the Word!"
 
     document.body.appendChild(titleEl);
 
+    // box for the letters
     let letterBox = document.createElement('div');
     letterBox.setAttribute('id', 'letterBox');
     document.body.appendChild(letterBox);
@@ -35,6 +39,13 @@ function displayGame() {
         unorderedEl.appendChild(listEl);
     }
 
+    //time title
+    let time = document.createElement('h2');
+    time.setAttribute('id', 'timeEl');
+    time.innerHTML = timeLimit + ' Sec';
+    document.body.appendChild(time);
+
+    //box for the input
     let box = document.createElement('div');
     box.setAttribute('id', 'box')
 
@@ -94,6 +105,19 @@ function newGame() {
 
     document.getElementById("letterInput").addEventListener("keydown", CheckLetter)
 
+}
+
+function setTime() {
+    let interval = setInterval(function () {
+        timeLimit--
+        document.getElementById('timeEl').innerHTML = timeLimit + 'Sec';
+
+        if (timeLimit == 0) {
+            //quit game
+            clearInterval(interval);
+        }
+
+    }, 1000)
 }
 
 document.getElementById("start").addEventListener('click', function (event) {
