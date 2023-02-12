@@ -134,15 +134,22 @@ function endDisplay(userWin) {
     scoreBoard.innerText = `Win: ${scores.win} | Loss: ${scores.lose}`;
     body.appendChild(scoreBoard);
 
+    //clear score button 
+    let clearBtn = document.createElement('button');
+    clearBtn.innerText = "Clear Score";
+    clearBtn.setAttribute("id", "clearButton");
+
     //new game Button
     let buttonBox = document.createElement('div')
     buttonBox.setAttribute('id', 'main-box')
     let newGameBtn = document.createElement('button');
     newGameBtn.setAttribute('id', 'newGame')
     newGameBtn.innerText = "New Game";
+    buttonBox.appendChild(clearBtn);
     buttonBox.appendChild(newGameBtn)
     body.appendChild(buttonBox);
 
+    document.getElementById('clearButton').addEventListener('click', clearScore)
     document.getElementById('newGame').addEventListener('click', startGame);
 }
 
@@ -158,6 +165,16 @@ function setTime() {
         endDisplay(false);
     }
     }, 1000)
+}
+
+function clearScore() {
+    scores = {
+        win: 0,
+        lose: 0
+    }
+    localStorage.setItem('prvScores', JSON.stringify(scores));
+    alert("Scores were reset");
+    return;
 }
 
 document.getElementById("start").addEventListener('click', function (event) {

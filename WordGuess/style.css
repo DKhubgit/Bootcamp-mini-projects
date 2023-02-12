@@ -55,6 +55,13 @@ li {
     justify-content: center;
 }
 
+#clearButton {
+    height: 75px;
+    width: 150px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 900px) {
     li {
         font-size: 500%;
