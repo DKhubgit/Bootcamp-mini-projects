@@ -13,12 +13,18 @@ function startGame() {
 let randIndex;
 let letters;
 let finishCount = 0;
-let timeLimit = 20; //sec
+let timeLimit;
 let scores = {
     win: 0,
     lose: 0
 }
 let interval;
+let prvScores = JSON.parse(localStorage.getItem('prvScores')); //array
+if (prvScores != null) {
+    scores = prvScores;
+} else {
+    localStorage.setItem('prvScores', JSON.stringify(scores)) //creates new localstorage
+}
 
 function displayGame() {
     setTime();
@@ -116,6 +122,8 @@ function endDisplay(userWin) {
         scores.lose++;
     }
 
+    localStorage.setItem('prvScores', JSON.stringify(scores))
+
     //show the word
     let guessedWord = document.createElement('h1');
     guessedWord.innerText = "The word was: " + words[randIndex];
@@ -139,6 +147,7 @@ function endDisplay(userWin) {
 }
 
 function setTime() {
+    timeLimit = 20; //sec
     interval = setInterval(function () {
     timeLimit--
     document.getElementById('timeEl').innerText = timeLimit + ' Sec';
@@ -148,7 +157,7 @@ function setTime() {
         clearInterval(interval);
         endDisplay(false);
     }
-}, 1000)
+    }, 1000)
 }
 
 document.getElementById("start").addEventListener('click', function (event) {
