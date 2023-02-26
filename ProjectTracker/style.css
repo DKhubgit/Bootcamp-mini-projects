@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#hero {
+    height: 600px;
+    width: 100%;
+    background-image:url("./assets/images/brands-people-Ax8IA8GAjVg-unsplash.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#title, #timeSlot {
+    font-size: 400%;
+    text-shadow: 3px 3px 5px #000000;
+}
