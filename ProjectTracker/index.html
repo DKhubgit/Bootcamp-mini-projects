@@ -33,43 +33,60 @@
                   <!-- Modal -->
                     <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="ModalLabel">Please fill out the following:</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="ModalLabel">Please fill out the following:</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="form">
+                                    <div class="mb-3">
+                                        <label for="projectTitle" class="form-label">Name of the Project:</label>
+                                        <input type="text" class="form-control" id="projectTitle" placeholder="Enter title">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="projectType" class="form-label">Project Type:</label>
+                                        <select class="form-select" aria-label="select dropdown">
+                                            <option value="N/A" selected>N/A</option>
+                                            <option value="Full-Stack">Full-stack</option>
+                                            <option value="Backend">Backend</option>
+                                            <option value="Frontend">Frontend</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="projectWage" class="form-label">Hourly Wage:</label>
+                                        <input type="text" class="form-control" id="projectWage" placeholder="Enter pay">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="datePicker" class="form-label">Due Date</label>
+                                        <input type="text" class="form-control" id="datePicker" placeholder="Select Date">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="formSubmit">Submit</button>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="projectTitle" class="form-label">Name of the Project:</label>
-                                    <input type="text" class="form-control" id="projectTitle" placeholder="Enter title">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="projectType" class="form-label">Project Type:</label>
-                                    <select class="form-select" aria-label="select dropdown">
-                                        <option value="4" selected>N/A</option>
-                                        <option value="1">Full-stack</option>
-                                        <option value="2">Backend</option>
-                                        <option value="3">Frontend</option>
-                                      </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="projectWage" class="form-label">Hourly Wage:</label>
-                                    <input type="text" class="form-control" id="projectWage" placeholder="Enter pay">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="datePicker" class="form-label">Due Date</label>
-                                    <input type="text" class="form-control" id="datePicker" placeholder="Select Date">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Project name</th>
+                        <th scope="col">Project type</th>
+                        <th scope="col">Hourly wage</th>
+                        <th scope="col">Due date</th>
+                        <th scope="col">Days until the due date</th>
+                        <th scope="col">Estimated total earned</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
     </body>
 
