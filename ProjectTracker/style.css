@@ -15,3 +15,15 @@
     font-size: 400%;
     text-shadow: 3px 3px 5px #000000;
 }
+
+@media screen and (max-width: 926px) {
+    #title, #timeSlot {
+        font-size: 300%
+    }
+}
+
+@media screen and (max-width: 786px) {
+    #title, #timeSlot {
+        font-size: 250%
+    }
+}
