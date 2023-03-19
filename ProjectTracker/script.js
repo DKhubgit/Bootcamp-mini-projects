@@ -24,7 +24,8 @@ function getData() {
     $("input, select").each(function() {
         data.push($(this).val());
     })
-    console.log(data)
+    data.push(timeDiff(data[3]));
+    console.log(data);
     addProject(data);
 }
 
@@ -36,5 +37,10 @@ function addProject(data) {
     tableRows.push("</tr>");
     $("tbody").append(tableRows.join(''));
 }
-//TODO: Calculate time difference from current to due date
+
+function timeDiff(dueDate) {
+    let currTime = moment();
+    let userTime = moment(new Date(dueDate));
+    return userTime.diff(currTime, 'days');
+}
 //TODO: Calculate total earned, 8 hours x time difference
